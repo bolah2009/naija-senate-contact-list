@@ -2,7 +2,7 @@ const senateList = [
   {
     state: 'ABIA',
     name: 'Sen. E. Abaribe',
-    phoneNo: '08033129452 ',
+    phoneNo: '08033129452',
     email: 'enyiabaribe@yahoo.com',
   },
   {
@@ -14,7 +14,7 @@ const senateList = [
   {
     state: 'ABIA',
     name: 'Sen. T. Orji',
-    phoneNo: '07082800000 ',
+    phoneNo: '07082800000',
     email: 'senatortaorji@gmail.com',
   },
   {
@@ -72,10 +72,22 @@ const senateList = [
     email: 'senatorstella@gmail.com',
   },
   {
-    state: '',
-    name: '',
+    state: 'Bauchi',
+    name: 'Sen. H. Jika',
+    phoneNo: '08038666690',
+    email: 'jikahalliru@gmail.com',
+  },
+  {
+    state: 'Bauchi',
+    name: 'Sen. A. Bulkachuwa',
     phoneNo: '',
-    email: '',
+    email: 'adamu.bulkachuwa@nass.gov.ng',
+  },
+  {
+    state: 'Bauchi',
+    name: 'Sen. L. Gamau',
+    phoneNo: '',
+    email: 'lawal.gumau@nass.gov.ng',
   },
   {
     state: '',

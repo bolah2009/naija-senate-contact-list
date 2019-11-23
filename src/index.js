@@ -5,6 +5,7 @@ const subject = '';
 const body = '';
 
 const render = () => {
+  const checkPhone = (p) => (p ? `<a href="sms:${p}?body=${body}">Send Text: ${p}</a>` : 'No Phone number');
   const listItems = senateList
     .map(
       ({
@@ -12,8 +13,8 @@ const render = () => {
       }) => `<li>
       <p>State: ${state}</p>
       <p>Name: ${name}</p>
-      <p>Email: <a href="mailto:${email}?subject=${subject}&body=${body}">Send Email</a>  </p>
-      <p>Phone number: <a href="sms:${phoneNo}?body=${body}">Send Text</a></p>
+      <p>Email: <a href="mailto:${email}?subject=${subject}&body=${body}">Send Email: ${email}</a> </p>
+      <p>Phone number: ${checkPhone(phoneNo)}</p>
     </li>`,
     )
     .join('');
