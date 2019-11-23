@@ -15,14 +15,20 @@
     />
     <meta property="og:type" content="blog" />
 
-    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="css/display.css" rel="stylesheet" type="text/css" />
     <title>Senate List</title>
   </head>
   <body>
     <main class="main">
-      <section id="list-of-objects" class="book-list">
-        <h1>List of senators</h1>
-        <div id="root"></div>
+      <section id="list-of-objects" class="d-flex col book-list">
+        <h1>List Nigeria of senators and contacts</h1>
+        <label for="search" class="search d-flex as-fe">
+          <h3>Search:</h3>
+          <input type="search" name="search" id="search" />
+        </label>
+
+        <div class="list d-flex col" id="root"></div>
       </section>
     </main>
     <script src="main.js"></script>
