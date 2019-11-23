@@ -2,9 +2,12 @@ import senateList from "./list";
 
 const root = document.querySelector("#root");
 const searchElement = document.querySelector("#search");
+const selectElement = document.querySelector("#filter");
 
 const subject = "";
 const body = "";
+
+const addCountryCode = (phone, code = "+234") => phone.replace(/0/, code);
 
 const render = list => {
   const listItems = list
@@ -15,7 +18,7 @@ const render = list => {
       <p>Send Email: <a href="mailto:${email}?subject=${subject}&body=${body}">${email}</a> </p>
       <p>Send Text: ${
         phoneNo
-          ? `<a href="sms:${phoneNo}?body=${body}">${phoneNo}</a>`
+          ? `<a href="sms:${addCountryCode(phoneNo)}?body=${body}">${addCountryCode(phoneNo)}</a>`
           : "No Phone number"
       }</p>
     </li>`
@@ -39,4 +42,14 @@ const handleSearch = () => {
   render(filteredList);
 };
 
+const filterByState = ({ target: { value } }) => {
+  const filteredList = senateList.filter(senator => senator.state === value);
+  if (filteredList.length) {
+    return render(filteredList);
+  }
+
+  render(senateList);
+};
+
 searchElement.addEventListener("keyup", handleSearch);
+selectElement.addEventListener("change", filterByState);

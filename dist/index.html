@@ -23,11 +23,32 @@
     <main class="main">
       <section id="list-of-objects" class="d-flex col book-list">
         <h1>List Nigeria of senators and contacts</h1>
-        <label for="search" class="search d-flex as-fe">
-          <h3>Search:</h3>
-          <input type="search" name="search" id="search" />
-        </label>
+        <div class="filters d-flex jc-sb">
+          <label for="filter" class="filter d-flex ai-c">
+            <h3>Filter by State:</h3>
+            <select name="filter" id="filter">
+              <option value="">All</option>
+              <option value="ABIA">ABIA</option>
+              <option value="ADAMAWA">ADAMAWA</option>
+              <option value="AKWA IBOM">AKWA IBOM</option>
+              <option value="ANAMBRA">ANAMBRA</option>
+              <option value="Bauchi">Bauchi</option>
+              <option value="BAYELSA">BAYELSA</option>
+              <option value="BENUE">BENUE</option>
+              <option value="BORNO">BORNO</option>
+              <option value="CROSS RIVER">CROSS RIVER</option>
+              <option value="DELTA">DELTA</option>
+              <option value="EDO">EDO</option>
+              <option value="EKITI">EKITI</option>
+              <option value="GOMBE">GOMBE</option>
+            </select>
+          </label>
 
+          <label for="search" class="search d-flex ai-c">
+            <h3>Search:</h3>
+            <input type="search" name="search" id="search" />
+          </label>
+        </div>
         <div class="list d-flex col" id="root"></div>
       </section>
     </main>
