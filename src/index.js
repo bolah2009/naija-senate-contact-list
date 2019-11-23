@@ -1,14 +1,28 @@
 import senateList from "./list";
+import { subject, body } from "./template";
 
 const root = document.querySelector("#root");
 const searchElement = document.querySelector("#search");
 const selectElement = document.querySelector("#filter");
 
-const subject = "";
-const body = "";
-
 const addCountryCode = (phone, code = "+234") => phone.replace(/0/, code);
 
+const renderListOfStateOption = () => {
+  const states = [];
+  const listOfStates = senateList
+    .map(({ state }) => {
+      if (states.includes(state)) {
+        return "";
+      }
+      states.push(state);
+      return `<option value="${state}">${state}</option>`;
+    })
+    .join("");
+
+  selectElement.innerHTML = `
+  <option value="">All</option>
+  ${listOfStates}`;
+};
 const render = list => {
   const listItems = list
     .map(
@@ -31,6 +45,7 @@ const render = list => {
   root.innerHTML = html;
 };
 
+renderListOfStateOption();
 render(senateList);
 
 const handleSearch = () => {
