@@ -81,3 +81,12 @@ html {
 .list-item p {
   margin-bottom: 4px;
 }
+
+.footer {
+  margin: 16px;
+  width: 90%;
+}
+
+.footer * {
+  margin: 8px 24px;
+}

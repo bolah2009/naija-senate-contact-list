@@ -18,7 +18,9 @@ const render = list => {
       <p>Send Email: <a href="mailto:${email}?subject=${subject}&body=${body}">${email}</a> </p>
       <p>Send Text: ${
         phoneNo
-          ? `<a href="sms:${addCountryCode(phoneNo)}?body=${body}">${addCountryCode(phoneNo)}</a>`
+          ? `<a href="sms:${addCountryCode(
+              phoneNo
+            )}?body=${body}">${addCountryCode(phoneNo)}</a>`
           : "No Phone number"
       }</p>
     </li>`

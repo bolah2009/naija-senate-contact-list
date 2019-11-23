@@ -18,6 +18,10 @@
   justify-content: space-between;
 }
 
+[class~="jc-c"] {
+  justify-content: center;
+}
+
 [class~="jc-fe"] {
   justify-content: flex-end;
 }
