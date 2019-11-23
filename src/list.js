@@ -90,6 +90,24 @@ const senateList = [
     email: 'lawal.gumau@nass.gov.ng',
   },
   {
+    state: 'BAYELSA',
+    name: 'Sen. O. EWHRUDJAKPO',
+    phoneNo: '09031352791',
+    email: 'ogagadick@gmail.com',
+  },
+  {
+    state: 'BAYELSA',
+    name: 'Sen. D. Diri',
+    phoneNo: '08036668698',
+    email: 'douyediri@gmail.com',
+  },
+  {
+    state: 'BAYELSA',
+    name: 'Sen. D. Wangagra',
+    phoneNo: '',
+    email: 'degi.wangagha@nass.gov.ng',
+  },
+  {
     state: '',
     name: '',
     phoneNo: '',
