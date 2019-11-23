@@ -3,7 +3,7 @@ const senateList = [
     state: 'ABIA',
     name: 'Sen. E. Abaribe',
     phoneNo: '08033129452 ',
-    email: 'enyiabaribe@yahoo.com ',
+    email: 'enyiabaribe@yahoo.com',
   },
   {
     state: 'ABIA',
@@ -21,7 +21,7 @@ const senateList = [
     state: 'ADAMAWA',
     name: 'Sen. B. Yaroe',
     phoneNo: '08034050460',
-    email: 'bdyaroe@gmail.com ',
+    email: 'bdyaroe@gmail.com',
   },
   {
     state: 'ADAMAWA',
@@ -52,6 +52,36 @@ const senateList = [
     name: 'Sen. C. Ekpeyong',
     phoneNo: '08027785234',
     email: 'chrisekpesg@yahoo.com',
+  },
+  {
+    state: 'ANAMBRA',
+    name: 'Sen. I. Ubah',
+    phoneNo: '09096655596',
+    email: 'senatorifeanyiubah@gmail.com',
+  },
+  {
+    state: 'ANAMBRA',
+    name: 'Sen. E. Uche',
+    phoneNo: '08037620002',
+    email: 'u.ekwunife@yahoo.com',
+  },
+  {
+    state: 'ANAMBRA',
+    name: 'Sen. A. Oduah',
+    phoneNo: '08055084340',
+    email: 'senatorstella@gmail.com',
+  },
+  {
+    state: '',
+    name: '',
+    phoneNo: '',
+    email: '',
+  },
+  {
+    state: '',
+    name: '',
+    phoneNo: '',
+    email: '',
   },
 ];
 
