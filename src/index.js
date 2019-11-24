@@ -1,48 +1,62 @@
-import senateList from "./list";
-import { subject, body } from "./template";
+import senateList from './senators';
+import { subject, body } from './template';
 
-const root = document.querySelector("#root");
-const searchElement = document.querySelector("#search");
-const selectElement = document.querySelector("#filter");
+const root = document.querySelector('#root');
+const searchElement = document.querySelector('#search');
+const selectElement = document.querySelector('#filter');
 
-const addCountryCode = (phone, code = "+234") => phone.replace(/0/, code);
+const addCountryCode = (phone, code = '+234') => phone.replace(/0/, code);
 
 const renderListOfStateOption = () => {
-  const states = [];
   const listOfStates = senateList
-    .map(({ state }) => {
-      if (states.includes(state)) {
-        return "";
-      }
-      states.push(state);
-      return `<option value="${state}">${state}</option>`;
-    })
-    .join("");
+    .map(({ state }) => `<option value="${state}">${state}</option>`)
+    .join('');
 
   selectElement.innerHTML = `
   <option value="">All</option>
   ${listOfStates}`;
 };
+
 const render = list => {
+  const phoneHTML = (phone, district) => `
+  <p>Send Text: 
+    <a href="sms:${addCountryCode(phone)}
+     ?body=${body(district)}">${addCountryCode(phone)}
+    </a>
+  </p>
+  <p>Call: 
+   <a href="tel:${addCountryCode(phone)}">${phone}</a>
+  </p>
+`;
+
+  const emailHTML = (email, district) => `
+   <p>Send Email: 
+    <a href="mailto:${email}?subject=${subject}&body=${body(district)}">
+     ${email}
+    </a>
+   </p>`;
+
+  const renderContent = (data, html, dis) => (data ? html(data, dis) : '');
+
+  const addData = ({ name, email, phone, district }) => `
+   <li class="senator">
+    <p class="name">${name}</p>
+      ${renderContent(email, emailHTML, district)}
+      ${renderContent(phone, phoneHTML, district)}
+    <p class="district">${district} Senatorial District</p>
+   </li>`;
+
   const listItems = list
     .map(
-      ({ state, name, email, phoneNo }) => `<li class="list-item">
-      <p>State: ${state}</p>
-      <p>Name: ${name}</p>
-      <p>Send Email: <a href="mailto:${email}?subject=${subject}&body=${body}">${email}</a> </p>
-      <p>Send Text: ${
-        phoneNo
-          ? `<a href="sms:${addCountryCode(
-              phoneNo
-            )}?body=${body}">${addCountryCode(phoneNo)}</a>`
-          : "No Phone number"
-      }</p>
-    </li>`
+      ({ state, data }) => `
+      <section class="grow-1 list-item">
+        <h2 class="state">${state}</h2>
+        <ul>${data.map(addData).join('')}</ul>
+      </section>`,
     )
-    .join("");
+    .join('');
 
-  const html = `<ul>${listItems}</ul>`;
-  root.innerHTML = html;
+  root.innerHTML = listItems;
 };
 
 renderListOfStateOption();
@@ -50,10 +64,11 @@ render(senateList);
 
 const handleSearch = () => {
   const searchText = searchElement.value;
-  const regExp = RegExp(searchText, "gi");
+  const regExp = RegExp(searchText, 'gi');
 
   const filteredList = senateList.filter(
-    senator => regExp.test(senator.name) || regExp.test(senator.state)
+    ({ state, data }) =>
+      regExp.test(state) || data.some(({ name }) => regExp.test(name)),
   );
 
   render(filteredList);
@@ -65,8 +80,8 @@ const filterByState = ({ target: { value } }) => {
     return render(filteredList);
   }
 
-  render(senateList);
+  return render(senateList);
 };
 
-searchElement.addEventListener("keyup", handleSearch);
-selectElement.addEventListener("change", filterByState);
+searchElement.addEventListener('keyup', handleSearch);
+selectElement.addEventListener('change', filterByState);

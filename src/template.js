@@ -1,9 +1,10 @@
-export const subject = "The Anti-Social Media Bill";
+export const subject = 'The Anti-Social Media Bill';
 
-export const body = encodeURIComponent(`Good day Sir/Ma,
+export const body = district =>
+  encodeURIComponent(`Good day Sir/Ma,
 
 My name is ____, a concerned constituent
-from ____. I write this mail to strongly condemn the anti-social media bill (hereinafter "the bill") currently in the committee stage at the Red chambers and to implore you to vote against this bill.
+from ${district}. I write this mail to strongly condemn the anti-social media bill (hereinafter "the bill") currently in the committee stage at the Red chambers and to implore you to vote against this bill.
 
 The bill seeks to gag Nigerians constitutional right to freedom of expression and speech under the guise of combating false information and "fake news". It is an attempt at regulating the citizens right to demand accountability and transparency from its elected officials and government officials and agencies.
 

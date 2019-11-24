@@ -20,35 +20,44 @@
     <title>Senate List</title>
   </head>
   <body>
-    <main class="main">
-      <section id="list-of-objects" class="d-flex col book-list">
-        <h1>List Nigeria of senators and contacts</h1>
-        <div class="filters d-flex jc-sb">
-          <label for="filter" class="filter d-flex ai-c">
-            <h3>Filter by State:</h3>
-            <select name="filter" id="filter">
-              <option value="">All</option>
-            </select>
-          </label>
-
-          <label for="search" class="search d-flex ai-c">
-            <h3>Search:</h3>
-            <input type="search" name="search" id="search" />
-          </label>
-        </div>
-        <div class="list d-flex col" id="root"></div>
-      </section>
+    <main class="main d-flex col book-list">
+      <h1>List Nigeria of senators and contacts</h1>
+      <div class="filters d-flex wrap jc-c">
+        <label for="filter" class="filter d-flex ai-c">
+          <h3>Filter by State:</h3>
+          <select name="filter" id="filter">
+            <option value="">All</option>
+          </select>
+        </label>
+        <label for="search" class="search d-flex ai-c">
+          <h3>Search:</h3>
+          <input type="search" name="search" id="search" />
+        </label>
+      </div>
+      <div class="list d-flex wrap" id="root"></div>
     </main>
-    <footer class="footer wrap d-flex jc-sb">
-      <a
-        class="source"
-        href="https://twitter.com/VillageParrot/status/1197802164263030784"
-        >Data source</a
-      >
+    <footer class="footer wrap d-flex jc-c">
+      <div class="source">
+        Data source:
+        <a
+          class="source-link"
+          href="https://twitter.com/VillageParrot/status/1197802164263030784"
+          >Village Parrot</a
+        >
+        <a
+          class="source-link"
+          href="https://www.shineyoureye.org/position/senator/"
+          >Shine Your Eye</a
+        >
+        <a class="source-link" href="https://www.nassnig.org/mps/senators"
+          >NASS</a
+        >
+      </div>
+
       <a
         class="github"
         href="https://github.com/bolah2009/naija-senate-contact-list/"
-        >View on Github</a
+        >View/Edit on Github</a
       >
       <a
         class="issues"

@@ -31,6 +31,10 @@ h1 {
   margin: 16px 0;
 }
 
+h2 {
+  font-size: 1.2em;
+}
+
 li {
   list-style-type: none;
 }
@@ -57,8 +61,9 @@ html {
   margin-left: 16px;
 }
 
-.filter {
-  margin: 0 16px;
+.filter,
+.search {
+  margin: 8px 16px;
 }
 
 .filter select {
@@ -71,10 +76,12 @@ html {
 
 .list-item {
   margin: 16px;
-  padding: 8px;
+  padding: 16px;
   background-color: #eee;
   border-radius: 4px;
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+  box-shadow:
+    0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -82,11 +89,42 @@ html {
   margin-bottom: 4px;
 }
 
+.state {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.senator {
+  padding: 10px 5px 10px 10px;
+  background: #fff;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.name {
+  font-weight: bold;
+  color: #111;
+  font-size: 24px;
+}
+
+.district {
+  font-weight: 300;
+  color: #777;
+  font-size: 20px;
+}
+
 .footer {
   margin: 16px;
   width: 90%;
 }
 
-.footer * {
-  margin: 8px 24px;
+.footer .source,
+.footer .github,
+.footer .issues {
+  margin: 8px 16px;
+}
+
+.footer .source-link {
+  margin: 0 8px;
 }
