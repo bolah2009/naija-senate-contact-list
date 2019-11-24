@@ -38,8 +38,8 @@ const render = list => {
 
   const renderContent = (data, html, dis) => (data ? html(data, dis) : '');
 
-  const addData = ({ name, email, phone, district }) => `
-   <li class="senator">
+  const addData = ({ name, email, phone, district, fullName }) => `
+   <li title="${fullName}" class="senator">
     <p class="name">${name}</p>
       ${renderContent(email, emailHTML, district)}
       ${renderContent(phone, phoneHTML, district)}
@@ -68,7 +68,7 @@ const handleSearch = () => {
 
   const filteredList = senateList.filter(
     ({ state, data }) =>
-      regExp.test(state) || data.some(({ name }) => regExp.test(name)),
+      regExp.test(state) || data.some(({ fullName }) => regExp.test(fullName)),
   );
 
   render(filteredList);
