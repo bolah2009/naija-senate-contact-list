@@ -1,4 +1,4 @@
-import senateList from './senators';
+import { senateList } from './senators.json';
 import { subject, body } from './template';
 
 const root = document.querySelector('#root');
