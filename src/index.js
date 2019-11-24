@@ -29,6 +29,8 @@ const render = list => {
   </p>
 `;
 
+  const emptyResults = `<section class="empty-section"><div class="empty-results">No senators found. Please try again!</div></section>`;
+
   const emailHTML = (email, district) => `
    <p>Send Email: 
     <a href="mailto:${email}?subject=${subject}&body=${body(district)}">
@@ -50,13 +52,13 @@ const render = list => {
     .map(
       ({ state, data }) => `
       <section class="grow-1 list-item">
-        <h2 class="state">${state}</h2>
+        <h2 class="state">${state} State</h2>
         <ul>${data.map(addData).join('')}</ul>
       </section>`,
     )
     .join('');
 
-  root.innerHTML = listItems;
+  root.innerHTML = list.length ? listItems : emptyResults;
 };
 
 renderListOfStateOption();
