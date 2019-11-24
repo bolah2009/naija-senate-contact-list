@@ -19,27 +19,26 @@ const renderListOfStateOption = () => {
 
 const render = list => {
   const phoneHTML = (phone, district) => `
-  <p>Call: 
-   <a href="tel:${addCountryCode(phone)}">${phone}</a>
-  </p>
-  <p>Send Text: 
-  <a href="sms:${addCountryCode(phone)}
-   ?body=${body(district)}">${addCountryCode(phone)}
-  </a>
-</p>
-<p>Send WhatsApp: 
-<a href="https://wa.me/${addCountryCode(phone, '234')}
-?text=${body(district)}" rel="noreferrer" target="_blank">
-${addCountryCode(phone)}
-</a>
-</p>
-`;
+    <p>Call: 
+      <a href="tel:${addCountryCode(phone)}">${phone}</a>
+    </p>
+    <p>Send Text: 
+      <a href="sms:${addCountryCode(phone)}
+     ?body=${body(district)}">${addCountryCode(phone)}
+    </a>
+    </p>
+    <p>Send WhatsApp: 
+    <a href="https://wa.me/${addCountryCode(phone, '234')}
+    ?text=${body(district)}" rel="noreferrer" target="_blank">
+    ${addCountryCode(phone)}
+    </a>
+    </p>`;
 
   const emailHTML = (email, district) => `<p>Send Email: 
-  <a href="mailto:${email}?subject=${subject}&body=${body(district)}">
-  ${email}
-  </a>
-  </p>`;
+    <a href="mailto:${email}?subject=${subject}&body=${body(district)}">
+     ${email}
+    </a>
+    </p>`;
 
   const emptyResults = `<section class="empty-section d-flex ai-c jc-c"><h3 class="empty-results">No senators found. Please try again!</h3></section>`;
 
@@ -103,11 +102,7 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('/service-worker.js')
-      .then(registration => {
-        console.log('SW registered: ', registration);
-      })
-      .catch(registrationError => {
-        console.log('SW registration failed: ', registrationError);
-      });
+      .then(r => r)
+      .catch(e => e);
   });
 }
