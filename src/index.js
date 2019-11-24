@@ -32,7 +32,7 @@ const render = list => {
 <p>Send WhatsApp: 
 <a href="https://wa.me/${addCountryCode(phone, '234')}?text=${body(
     district,
-  )}">
+  )}" target="_blank">
 ${addCountryCode(phone)}
 </a>
 </p>
