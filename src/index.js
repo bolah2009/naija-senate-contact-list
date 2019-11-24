@@ -6,6 +6,8 @@ const searchElement = document.querySelector('#search');
 const selectElement = document.querySelector('#filter');
 
 const addCountryCode = (phone, code = '+234') => phone.replace(/0/, code);
+const addCountryCodeWithoutPlus = (phone, code = '234') =>
+  phone.replace(/0/, code);
 
 const renderListOfStateOption = () => {
   const listOfStates = senateList
@@ -19,44 +21,53 @@ const renderListOfStateOption = () => {
 
 const render = list => {
   const phoneHTML = (phone, district) => `
-  <p>Send Text: 
-    <a href="sms:${addCountryCode(phone)}
-     ?body=${body(district)}">${addCountryCode(phone)}
-    </a>
-  </p>
   <p>Call: 
    <a href="tel:${addCountryCode(phone)}">${phone}</a>
   </p>
+  <p>Send Text: 
+  <a href="sms:${addCountryCode(phone)}
+   ?body=${body(district)}">${addCountryCode(phone)}
+  </a>
+</p>
+<p>Send WhatsApp: 
+<a href="https://wa.me/${addCountryCode(phone, '234')}?text=${body(
+    district,
+  )}" target="_blank">
+${addCountryCode(phone)}
+</a>
+</p>
 `;
 
-  const emailHTML = (email, district) => `
-   <p>Send Email: 
-    <a href="mailto:${email}?subject=${subject}&body=${body(district)}">
-     ${email}
-    </a>
-   </p>`;
+  const emailHTML = (email, district) => `<p>Send Email: 
+  <a href="mailto:${email}?subject=${subject}&body=${body(district)}">
+  ${email}
+  </a>
+  </p>`;
+
+  const emptyResults = `<section class="empty-section"><div class="empty-results">No senators found. Please try again!</div></section>`;
 
   const renderContent = (data, html, dis) => (data ? html(data, dis) : '');
 
   const addData = ({ name, email, phone, district, fullName }) => `
    <li title="${fullName}" class="senator">
     <p class="name">${name}</p>
+    <p class="district">${district} Senatorial District</p>
+    <hr class="hr">
       ${renderContent(email, emailHTML, district)}
       ${renderContent(phone, phoneHTML, district)}
-    <p class="district">${district} Senatorial District</p>
    </li>`;
 
   const listItems = list
     .map(
       ({ state, data }) => `
       <section class="grow-1 list-item">
-        <h2 class="state">${state}</h2>
+        <h2 class="state">${state} State</h2>
         <ul>${data.map(addData).join('')}</ul>
       </section>`,
     )
     .join('');
 
-  root.innerHTML = listItems;
+  root.innerHTML = list.length ? listItems : emptyResults;
 };
 
 renderListOfStateOption();

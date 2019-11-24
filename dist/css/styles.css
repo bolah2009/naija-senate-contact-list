@@ -74,14 +74,25 @@ html {
   margin-right: 16px;
 }
 
+.empty-section {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.empty-results {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+
 .list-item {
   margin: 16px;
   padding: 16px;
   background-color: #eee;
   border-radius: 4px;
-  box-shadow:
-    0 3px 1px -2px rgba(0, 0, 0, 0.2),
-    0 2px 2px 0 rgba(0, 0, 0, 0.14),
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
     0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -111,7 +122,12 @@ html {
 .district {
   font-weight: 300;
   color: #777;
-  font-size: 20px;
+  font-size: 14px;
+}
+
+.hr {
+  border: 1px solid #e1e4e8;
+  margin-bottom: 10px;
 }
 
 .footer {
@@ -127,4 +143,8 @@ html {
 
 .footer .source-link {
   margin: 0 8px;
+}
+
+#root {
+  min-height: 30vh;
 }
