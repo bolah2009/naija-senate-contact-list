@@ -51,9 +51,10 @@ ${addCountryCode(phone)}
   const addData = ({ name, email, phone, district, fullName }) => `
    <li title="${fullName}" class="senator">
     <p class="name">${name}</p>
+    <p class="district">${district} Senatorial District</p>
+    <hr class="hr">
       ${renderContent(email, emailHTML, district)}
       ${renderContent(phone, phoneHTML, district)}
-    <p class="district">${district} Senatorial District</p>
    </li>`;
 
   const listItems = list
