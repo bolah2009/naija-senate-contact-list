@@ -74,6 +74,10 @@ html {
   margin-right: 16px;
 }
 
+.empty-section {
+  width: 100vw;
+}
+
 .list-item {
   margin: 16px;
   padding: 16px;
@@ -109,7 +113,12 @@ html {
 .district {
   font-weight: 300;
   color: #777;
-  font-size: 20px;
+  font-size: 14px;
+}
+
+.hr {
+  border: 1px solid #e1e4e8;
+  margin-bottom: 10px;
 }
 
 .footer {
@@ -125,4 +134,8 @@ html {
 
 .footer .source-link {
   margin: 0 8px;
+}
+
+#root {
+  min-height: 30vh;
 }
