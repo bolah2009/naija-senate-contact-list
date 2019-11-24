@@ -6,6 +6,8 @@ const searchElement = document.querySelector('#search');
 const selectElement = document.querySelector('#filter');
 
 const addCountryCode = (phone, code = '+234') => phone.replace(/0/, code);
+const addCountryCodeWithoutPlus = (phone, code = '234') =>
+  phone.replace(/0/, code);
 
 const renderListOfStateOption = () => {
   const listOfStates = senateList
@@ -19,24 +21,30 @@ const renderListOfStateOption = () => {
 
 const render = list => {
   const phoneHTML = (phone, district) => `
-  <p>Send Text: 
-    <a href="sms:${addCountryCode(phone)}
-     ?body=${body(district)}">${addCountryCode(phone)}
-    </a>
-  </p>
   <p>Call: 
    <a href="tel:${addCountryCode(phone)}">${phone}</a>
   </p>
+  <p>Send Text: 
+  <a href="sms:${addCountryCode(phone)}
+   ?body=${body(district)}">${addCountryCode(phone)}
+  </a>
+</p>
+<p>Send WhatsApp: 
+<a href="https://wa.me/${addCountryCodeWithoutPlus(phone)}?text=${body(
+    district,
+  )}">
+${addCountryCode(phone)}
+</a>
+</p>
 `;
 
-  const emptyResults = `<section class="empty-section"><div class="empty-results">No senators found. Please try again!</div></section>`;
+  const emailHTML = (email, district) => `<p>Send Email: 
+  <a href="mailto:${email}?subject=${subject}&body=${body(district)}">
+  ${email}
+  </a>
+  </p>`;
 
-  const emailHTML = (email, district) => `
-   <p>Send Email: 
-    <a href="mailto:${email}?subject=${subject}&body=${body(district)}">
-     ${email}
-    </a>
-   </p>`;
+  const emptyResults = `<section class="empty-section"><div class="empty-results">No senators found. Please try again!</div></section>`;
 
   const renderContent = (data, html, dis) => (data ? html(data, dis) : '');
 
