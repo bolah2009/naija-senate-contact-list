@@ -24,19 +24,19 @@ const render = list => {
   </p>
   <p>Send Text: 
   <a href="sms:${addCountryCode(phone)}
-   ?body=${body(district)}">${addCountryCode(phone)}
+   ?body=${body(district, 'message')}">${addCountryCode(phone)}
   </a>
 </p>
 <p>Send WhatsApp: 
 <a href="https://wa.me/${addCountryCode(phone, '234')}
-?text=${body(district)}" rel="noreferrer" target="_blank">
+?text=${body(district, 'message')}" rel="noreferrer" target="_blank">
 ${addCountryCode(phone)}
 </a>
 </p>
 `;
 
   const emailHTML = (email, district) => `<p>Send Email: 
-  <a href="mailto:${email}?subject=${subject}&body=${body(district)}">
+  <a href="mailto:${email}?subject=${subject}&body=${body(district, 'email')}">
   ${email}
   </a>
   </p>`;
