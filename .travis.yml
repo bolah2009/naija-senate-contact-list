@@ -1,0 +1,10 @@
+env:
+  global:
+language: node_js
+node_js:
+  - node
+notifications:
+  - false
+script:
+  - yarn format:check
+  - yarn lint:check
