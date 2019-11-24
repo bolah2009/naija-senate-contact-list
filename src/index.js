@@ -6,8 +6,6 @@ const searchElement = document.querySelector('#search');
 const selectElement = document.querySelector('#filter');
 
 const addCountryCode = (phone, code = '+234') => phone.replace(/0/, code);
-const addCountryCodeWithoutPlus = (phone, code = '234') =>
-  phone.replace(/0/, code);
 
 const renderListOfStateOption = () => {
   const listOfStates = senateList
@@ -30,9 +28,7 @@ const render = list => {
   </a>
 </p>
 <p>Send WhatsApp: 
-<a href="https://wa.me/${addCountryCodeWithoutPlus(phone)}?text=${body(
-    district,
-  )}">
+<a href="https://wa.me/${addCountryCode(phone, 234)}?text=${body(district)}">
 ${addCountryCode(phone)}
 </a>
 </p>
