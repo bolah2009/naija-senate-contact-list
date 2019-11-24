@@ -22,7 +22,7 @@
     "stylelint-config-recommended": "^3.0.0",
     "stylelint-prettier": "^1.1.1",
     "webpack": "^4.40.0",
-    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.8",
     "webpack-dev-server": "^3.8.1",
     "webpack-fix-style-only-entries": "^0.2.1"
