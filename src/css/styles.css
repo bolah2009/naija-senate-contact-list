@@ -75,16 +75,7 @@ html {
 }
 
 .empty-section {
-  align-content: center;
-  display: flex;
-  justify-content: center;
   width: 100vw;
-}
-
-.empty-results {
-  align-content: center;
-  display: flex;
-  justify-content: center;
 }
 
 .list-item {
@@ -121,7 +112,7 @@ html {
 
 .district {
   font-weight: 300;
-  color: #777;
+  color: #000;
   font-size: 14px;
 }
 

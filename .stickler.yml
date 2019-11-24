@@ -3,3 +3,6 @@ linters:
     config: 'stylelint.config.js'
   eslint:
     config: '.eslintrc.js'
+files:
+  ignore:
+    - '*.config.js'

@@ -1,4 +1,4 @@
-import senateList from './senators';
+import { senateList } from './senators.json';
 import { subject, body } from './template';
 
 const root = document.querySelector('#root');
@@ -6,8 +6,6 @@ const searchElement = document.querySelector('#search');
 const selectElement = document.querySelector('#filter');
 
 const addCountryCode = (phone, code = '+234') => phone.replace(/0/, code);
-const addCountryCodeWithoutPlus = (phone, code = '234') =>
-  phone.replace(/0/, code);
 
 const renderListOfStateOption = () => {
   const listOfStates = senateList
@@ -30,9 +28,8 @@ const render = list => {
   </a>
 </p>
 <p>Send WhatsApp: 
-<a href="https://wa.me/${addCountryCode(phone, '234')}?text=${body(
-    district,
-  )}" target="_blank">
+<a href="https://wa.me/${addCountryCode(phone, '234')}
+?text=${body(district)}" rel="noreferrer" target="_blank">
 ${addCountryCode(phone)}
 </a>
 </p>
@@ -44,7 +41,7 @@ ${addCountryCode(phone)}
   </a>
   </p>`;
 
-  const emptyResults = `<section class="empty-section"><div class="empty-results">No senators found. Please try again!</div></section>`;
+  const emptyResults = `<section class="empty-section d-flex ai-c jc-c"><h3 class="empty-results">No senators found. Please try again!</h3></section>`;
 
   const renderContent = (data, html, dis) => (data ? html(data, dis) : '');
 
@@ -75,14 +72,19 @@ render(senateList);
 
 const handleSearch = () => {
   const searchText = searchElement.value;
-  const regExp = RegExp(searchText, 'gi');
+  if (searchText) {
+    const regExp = RegExp(searchText, 'gi');
 
-  const filteredList = senateList.filter(
-    ({ state, data }) =>
-      regExp.test(state) || data.some(({ fullName }) => regExp.test(fullName)),
-  );
+    const filteredList = senateList.filter(
+      ({ state, data }) =>
+        regExp.test(state) ||
+        data.some(({ fullName }) => regExp.test(fullName)),
+    );
 
-  render(filteredList);
+    return render(filteredList);
+  }
+
+  return render(senateList);
 };
 
 const filterByState = ({ target: { value } }) => {
